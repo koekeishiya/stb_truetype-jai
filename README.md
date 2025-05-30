@@ -8,3 +8,5 @@ jai version: beta 0.2.014
 - [x] MacOS
 - [ ] Windows
 - [ ] Linux
+
+Based on jai modules/stb_image bindings generator.
