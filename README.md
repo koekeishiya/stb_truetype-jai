@@ -6,7 +6,7 @@ jai version: beta 0.2.014
 ### Current operating system supported
 
 - [x] MacOS
-- [ ] Windows
+- [x] Windows
 - [ ] Linux
 
 Based on jai modules/stb_image bindings generator.
