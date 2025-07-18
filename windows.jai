@@ -280,7 +280,7 @@ stbtt_kerningentry :: struct {
 stbtt_GetKerningTableLength :: (info: *stbtt_fontinfo) -> s32 #foreign stb_truetype;
 stbtt_GetKerningTable :: (info: *stbtt_fontinfo, table: *stbtt_kerningentry, table_length: s32) -> s32 #foreign stb_truetype;
 
-STBTT :: enum u32 {
+STBTT :: enum s32 {
     vmove  :: 1;
     vline  :: 2;
     vcurve :: 3;
@@ -432,7 +432,7 @@ stbtt_GetFontNameString :: (font: *stbtt_fontinfo, length: *s32, platformID: s32
 // some of the values for the IDs are below; for more see the truetype spec:
 //     http://developer.apple.com/textfonts/TTRefMan/RM06/Chap6name.html
 //     http://www.microsoft.com/typography/otspec/name.htm
-STBTT_PLATFORM_ID :: enum u32 {
+STBTT_PLATFORM_ID :: enum s32 {
     UNICODE   :: 0;
     MAC       :: 1;
     ISO       :: 2;
@@ -444,7 +444,7 @@ STBTT_PLATFORM_ID :: enum u32 {
     STBTT_PLATFORM_ID_MICROSOFT :: MICROSOFT;
 }
 
-STBTT_UNICODE_EID :: enum u32 {
+STBTT_UNICODE_EID :: enum s32 {
     UNICODE_1_0      :: 0;
     UNICODE_1_1      :: 1;
     ISO_10646        :: 2;
@@ -458,7 +458,7 @@ STBTT_UNICODE_EID :: enum u32 {
     STBTT_UNICODE_EID_UNICODE_2_0_FULL :: UNICODE_2_0_FULL;
 }
 
-STBTT_MS_EID :: enum u32 {
+STBTT_MS_EID :: enum s32 {
     SYMBOL       :: 0;
     UNICODE_BMP  :: 1;
     SHIFTJIS     :: 2;
@@ -470,7 +470,7 @@ STBTT_MS_EID :: enum u32 {
     STBTT_MS_EID_UNICODE_FULL :: UNICODE_FULL;
 }
 
-STBTT_MAC_EID :: enum u32 {
+STBTT_MAC_EID :: enum s32 {
     ROMAN        :: 0;
     ARABIC       :: 4;
     JAPANESE     :: 1;
@@ -490,7 +490,7 @@ STBTT_MAC_EID :: enum u32 {
     STBTT_MAC_EID_RUSSIAN      :: RUSSIAN;
 }
 
-STBTT_MS_LANG :: enum u32 {
+STBTT_MS_LANG :: enum s32 {
     ENGLISH  :: 1033;
     ITALIAN  :: 1040;
     CHINESE  :: 2052;
@@ -518,7 +518,7 @@ STBTT_MS_LANG :: enum u32 {
     STBTT_MS_LANG_SWEDISH  :: SWEDISH;
 }
 
-STBTT_MAC_LANG :: enum u32 {
+STBTT_MAC_LANG :: enum s32 {
     ENGLISH            :: 0;
     JAPANESE           :: 11;
     ARABIC             :: 12;
@@ -552,14 +552,4 @@ STBTT_MAC_LANG :: enum u32 {
 
 #scope_file
 
-
-#if OS == .WINDOWS {
-    stb_truetype :: #library "windows/stb_truetype";
-} else #if OS == .LINUX {
-    stb_truetype :: #library "linux/stb_truetype";
-} else #if OS == .MACOS {
-    stb_truetype :: #library "macos/stb_truetype";
-} else {
-    #assert false;
-}
-
+stb_truetype :: #library "windows/stb_truetype";
