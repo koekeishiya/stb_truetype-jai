@@ -1,7 +1,7 @@
 ## jai bindings for stb_truetype
 
 stb_truetype version: v1.26</br>
-jai version: beta 0.2.014
+jai version: beta 0.2.015
 
 ### Current operating system supported
 
